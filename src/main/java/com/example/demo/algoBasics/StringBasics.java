@@ -28,8 +28,6 @@ public class StringBasics {
     }
 
 
-
-
     /**
      * 输入String
      */
@@ -69,7 +67,7 @@ public class StringBasics {
 
         String string = "你好啊 hesuijin，血是红色的";
         // 2. 替换敏感词
-        String result = string.replace("血","*");
+        String result = string.replace("红","*");
         // 3. 输出结果
         System.out.println(result);
     }
