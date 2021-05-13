@@ -14,6 +14,9 @@ public class StringBasics {
         //输入String
         stringScannerTest();
 
+        //测试char 转换成String
+        charToString();
+
         //对String进行遍历
         stringForTest();
 
@@ -40,6 +43,24 @@ public class StringBasics {
         System.out.println("==============================================");
     }
 
+
+    /**
+     * 测试String 转换成 char
+     */
+    private static void charToString(){
+        String string = "string";
+        String[] strings = new String[10];
+        char[] chars = new char[10];
+
+        for (int i = 0;i < string.length() ; i++){
+            chars[i] = string.charAt(i);
+            strings[i] = String.valueOf(string.charAt(i));
+        }
+
+        System.out.println("打印chars"+chars);
+        System.out.println("打印string"+strings);
+
+    }
 
     /**
      * 对String进行遍历
