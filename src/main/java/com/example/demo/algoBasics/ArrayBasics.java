@@ -46,11 +46,12 @@ public class ArrayBasics {
         System.out.println(" int[] arrInt = new int[3];方式  动态初始");
 
         int[] arrInt = new int[3];
+
+        System.out.println("数组长度数组空间:   " + arrInt.length);
+
         arrInt[0] = 1;
         arrInt[1] = 2;
         arrInt[2] = 3;
-
-        System.out.println("数组长度数组空间:   " + arrInt.length);
 
         //注意数组的开始索引下标为 0  数组长度就等于数组空间 容量为3  即是 【0,1,2】
         for (int i = 0; i < arrInt.length; i++) {
