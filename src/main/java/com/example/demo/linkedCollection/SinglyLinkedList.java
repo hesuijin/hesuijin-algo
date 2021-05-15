@@ -46,8 +46,8 @@ public class SinglyLinkedList {
             return;
         }
 
-        //以头节点开始 使用next进行遍历 一直获取到
-        // 遍历节点 的下一个节点为原节点为止
+        //以头节点开始 使用next进行遍历 一直到获取到
+        // 遍历节点 的下一个节点为需要查找的某节点为止
         NodeSingly indexNodeSingly = head;
         while (indexNodeSingly != null && indexNodeSingly.next != originalNodeSingly) {
             indexNodeSingly = indexNodeSingly.next;
@@ -91,7 +91,7 @@ public class SinglyLinkedList {
         }
 
         if (originalNodeSingly == head) {
-            head = null;
+            head = head.next;
             return;
         }
 
@@ -142,7 +142,7 @@ public class SinglyLinkedList {
 
         //查找到data的节点为 头节点
         if (beforeIndexNodeSingly == null) {
-            head = null;
+            head = head.next;
         } else {
             beforeIndexNodeSingly.next = beforeIndexNodeSingly.next.next;
         }

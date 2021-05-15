@@ -1,8 +1,6 @@
 package com.example.demo.linkedCollection;
 
 
-import java.util.LinkedList;
-
 /**
  * @Description:
  *      jdk1.8的LinkedList是简单的双向非循环链表
@@ -69,7 +67,6 @@ public class DoublyLinkedList {
         }
     }
 
-//
 
     //在某节点上前 插入新节点
     public void insertBefore(NodeDoubly originalNodeDoubly, int value) {
@@ -88,8 +85,8 @@ public class DoublyLinkedList {
             return;
         }
 
-        //以头节点开始 使用next进行遍历 一直获取到
-        // 遍历节点 的下一个节点为原节点为止
+        //以头节点开始 使用next进行遍历 一直到获取到
+        // 遍历节点 的下一个节点为需要查找的某节点为止
         NodeDoubly indexNodeDoubly = first;
         while (indexNodeDoubly != null && indexNodeDoubly.next != originalNodeDoubly) {
             indexNodeDoubly = indexNodeDoubly.next;
@@ -98,6 +95,7 @@ public class DoublyLinkedList {
         if (indexNodeDoubly == null) {
             return;
         }
+
         //最后顺序  遍历节点   新节点   某节点
         //实现了    新节点插入到原节点之前的功能
         newNodeDoubly.next = originalNodeDoubly;
@@ -108,38 +106,46 @@ public class DoublyLinkedList {
 
     }
 
-
     //顺序插入
     //链表尾部插入
-    public void insertTail(int value) {
+    public void insertAsLast(int value) {
+        NodeDoubly newNodeDoubly = new NodeDoubly(null,value,null );
 
-        NodeDoubly newNodeDoubly = new NodeDoubly(null,value, null);
-        //空链表，可以插入新节点作为first，也可以不操作
-        if (first == null) {
+        //创建一个节点该节点同时为 头节点与尾节点
+        if (last == null) {
             first = newNodeDoubly;
-            first.next = last;
-            last.prev = first;
+            last = newNodeDoubly;
         } else {
-            NodeDoubly indexNodeDoubly = first;
-            while (indexNodeDoubly.next != null) {
-                indexNodeDoubly = indexNodeDoubly.next;
-            }
-            //获取到indexNode为最后一个节点
-            //遍历节点  新节点(尾节点)   空
-            indexNodeDoubly.next = newNodeDoubly;
-            newNodeDoubly.prev = indexNodeDoubly;
-
-//            newNodeDoubly.prev;
+            //新节点 next 指向 原last
+            newNodeDoubly.prev = last;
+            //原last next   指向 新节点
+            last.next = newNodeDoubly;
+            //last变量名的 指针指向 变为新节点
+            last = newNodeDoubly;
         }
     }
 
+
     public void deleteByNode(NodeDoubly originalNodeDoubly) {
-        if (originalNodeDoubly == null || first == null) {
+        if (originalNodeDoubly == null || first == null && last == null) {
             return;
         }
 
         if (originalNodeDoubly == first) {
-            first = null;
+           if(first == last){
+               last = null;
+           }
+            first = first.next;
+            first.prev = null;
+            return;
+        }
+
+        if (originalNodeDoubly == last) {
+            if(first == last){
+                first = null;
+            }
+            last = last.prev;
+            last.next = null;
             return;
         }
 
@@ -173,7 +179,7 @@ public class DoublyLinkedList {
 
     //通过递归  根据value  删除所有拥有该value的节点
     public void deleteByValueRepetition(int value, NodeDoubly indexNodeDoubly) {
-        if (first == null) {
+        if (first == null && last == null) {
             return;
         }
 
@@ -192,7 +198,14 @@ public class DoublyLinkedList {
 
         //查找到data的节点为 头节点
         if (beforeIndexNodeDoubly == null) {
-            first = null;
+            if(first == last){
+                first = null;
+                last = null;
+
+            }else {
+                first = first.next;
+                first.prev = null;
+            }
         } else {
             beforeIndexNodeDoubly.next = beforeIndexNodeDoubly.next.next;
             beforeIndexNodeDoubly.next.prev = beforeIndexNodeDoubly;
@@ -213,9 +226,9 @@ public class DoublyLinkedList {
 
     //查找节点的data
     public NodeDoubly findByValueLast(int value) {
-        NodeDoubly indexNodeDoubly = first;
+        NodeDoubly indexNodeDoubly = last;
         while (indexNodeDoubly != null && indexNodeDoubly.data != value) {
-            indexNodeDoubly = indexNodeDoubly.next;
+            indexNodeDoubly = indexNodeDoubly.prev;
         }
         return indexNodeDoubly;
     }
