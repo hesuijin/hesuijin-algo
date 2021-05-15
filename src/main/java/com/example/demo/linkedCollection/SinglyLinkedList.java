@@ -13,7 +13,6 @@ public class SinglyLinkedList {
 
     //无头结点
     //表头部插入
-    //这种操作将于输入的顺序相反，逆序
     public void insertAsHead(int value) {
         NodeSingly newNodeSingly = new NodeSingly(value, null);
         insertToHead(newNodeSingly);
@@ -82,7 +81,6 @@ public class SinglyLinkedList {
             //获取到indexNode为最后一个节点
             //遍历节点  新节点(尾节点)   空
             indexNodeSingly.next = newNodeSingly;
-            newNodeSingly.next = null;
         }
     }
 
@@ -111,10 +109,11 @@ public class SinglyLinkedList {
 
         //获取到  遍历节点  某节点
         //最后    遍历节点   直接指向  遍历节点的下个节点（原节点）的下一个节点
-        //实现了  那么要删除的某节点就会被跳过
+        //实现了  被删除的某节点就会被跳过
         indexNodeSingly.next = indexNodeSingly.next.next;
     }
 
+    //根据value删除节点
     public void deleteByValue(int value){
 
         NodeSingly indexNodeSingly = head;
@@ -122,13 +121,14 @@ public class SinglyLinkedList {
         deleteByValueRepetition(value, indexNodeSingly);
     }
 
+    //通过递归  根据value  删除所有拥有该value的节点
     public void deleteByValueRepetition(int value, NodeSingly indexNodeSingly) {
         if (head == null) {
             return;
         }
 
         NodeSingly beforeIndexNodeSingly = null;
-        // 以头节点开始 使用next进行遍历 一直获取到
+        // 以头节点开始 使用next进行遍历 一直到获取到为止
         // 遍历节点 的 data 为所需要查找的data为止
         // 该遍历节点是需要删除的  因此还需要查找出前一个节点
         while (indexNodeSingly != null && indexNodeSingly.data != value) {
@@ -142,7 +142,7 @@ public class SinglyLinkedList {
 
         //查找到data的节点为 头节点
         if (beforeIndexNodeSingly == null) {
-            head = head.next;
+            head = null;
         } else {
             beforeIndexNodeSingly.next = beforeIndexNodeSingly.next.next;
         }
