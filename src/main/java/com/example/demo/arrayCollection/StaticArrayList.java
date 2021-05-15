@@ -3,6 +3,14 @@ package com.example.demo.arrayCollection;
 /**
  * @Description:
  * 静态ArrayList（确定容量）
+ * 1：getLength()        获取空间大小
+ * 2：getCount()         获取已有个数
+ * 3：find（int index）  根据索引找到数据中的元素并返回
+ * 4：findAll()          查询所有元素
+ * 5：insert（int value）在数组尾部插入元素
+ * 6：insertByIndex(int index, int value)  根据索引插入元素
+ * 7:deleteByIndex(int index) 根据索引删除元素
+ *
  * @Author HeSuiJin
  * @Date 2021/5/12
  */
@@ -33,7 +41,7 @@ public class StaticArrayList {
         return count;
     }
 
-    //根据索引，找到数据中的元素并返回
+    //根据索引找到数据中的元素并返回
     public int find(int index) {
         if (index < 0 || index >= count) {
             return -1;
@@ -50,7 +58,7 @@ public class StaticArrayList {
 
     }
 
-    //在尾部  插入元素
+    //在数组尾部插入元素
     public boolean insert(int value){
         // 数组空间已满
         if (count == capacity) {
@@ -63,7 +71,7 @@ public class StaticArrayList {
         return true;
     }
 
-    //根据索引 随机插入元素
+    //根据索引插入元素
     public boolean insertByIndex(int index, int value) {
 
         // 数组空间已满
@@ -88,7 +96,7 @@ public class StaticArrayList {
         return true;
     }
 
-    //根据索引，删除数组中元素
+    //根据索引删除元素
     public boolean deleteByIndex(int index) {
         if (index < 0 || index >= count) {
             return false;

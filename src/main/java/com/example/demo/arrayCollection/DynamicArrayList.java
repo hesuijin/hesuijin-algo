@@ -3,6 +3,19 @@ package com.example.demo.arrayCollection;
 /**
  * @Description:
  * 动态ArrayList（自动扩容）
+ * 1:getLength()         获取空间大小
+ * 2:getCount()          获取已有个数
+ * 3:get(int index)      获取对应 index 位置的元素
+ * 4:set(int index, T e) 修改 index 位置的元素
+ * 5: find(T e)          获取对应元素的下标, 未找到，返回 -1
+ * 6:contains(T e)       查看数组是否包含元素e
+ * 7:addFirst(T e)       向数组头插入元素
+ * 8:addLast(T e)        向数组尾插入元素
+ * 9:removeElement(T e)  删除 index 位置的元素，并返回
+ * 10:removeFirst()      删除第一个元素
+ * 11:removeLast()       删除末尾元素
+ * 12:removeElement(T e) 从数组中删除指定元素
+ *
  * @Author HeSuiJin
  * @Date 2021/5/12
  */
@@ -24,12 +37,12 @@ public class DynamicArrayList<T> {
         this(5);
     }
 
-    // 获取数组容量
+    // 获取空间大小
     public int getLength() {
         return data.length;
     }
 
-    // 获取当前元素个数
+    // 获取已有个数
     public int getCount() {
         return count;
     }
@@ -68,7 +81,7 @@ public class DynamicArrayList<T> {
     }
 
 
-    // 在 index 位置，插入元素e, 时间复杂度 O(m+n)
+    // 在 index 位置，插入元素e
     public void add(int index, T e) {
         checkIndexForAdd(index);
         // 如果当前元素个数等于数组容量，则将数组扩容为原来的2倍

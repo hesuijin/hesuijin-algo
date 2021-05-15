@@ -15,7 +15,4 @@ public class NodeSingly {
         this.next = next;
     }
 
-    public int getData() {
-        return data;
-    }
 }

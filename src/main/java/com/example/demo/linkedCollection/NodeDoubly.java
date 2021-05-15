@@ -19,9 +19,4 @@ public class NodeDoubly {
         this.prev = prev;
     }
 
-    public int getData() {
-        return data;
-    }
-
-
 }
