@@ -2,9 +2,9 @@ package com.example.demo.algoBasics;
 
 
 /**
- * @Description: 数组就是存储数据长度固定的容器，存储多个数据的数据类型要一致。
+ * @Description:
+ * 数组就是存储数据长度固定的容器，存储多个数据的数据类型要一致。
  * 为什么先看最基础的数组呢，这是因为最基础的数组 实际上是 整个数组集合的基础
- * 可以查看一下最常用的ArrayList会发现里面有大量的数组
  *
  * @Author HeSuiJin
  * @Date 2021/5/12

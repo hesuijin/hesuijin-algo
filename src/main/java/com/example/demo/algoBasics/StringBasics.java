@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 /**
  * @Description:
+ * 字符串作为特殊的引用类型
+ * 很多时候需要算法题中对其进行操作 因此需要熟悉常用API
  * @Author HeSuiJin
  * @Date 2021/5/12
  */
