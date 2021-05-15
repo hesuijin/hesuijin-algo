@@ -12,7 +12,7 @@ public class StaticArrayList {
     public int data[];
     //定义数组长度
     private int capacity;
-    //定义中实际个数
+    //定义实际个数
     private int count;
 
     //构造方法，定义数组大小
@@ -21,6 +21,11 @@ public class StaticArrayList {
         this.capacity = capacity;
         //一开始一个数都没有存所以为0
         this.count = 0;
+    }
+
+    //获取空间大小
+    public int getLength(){
+        return data.length;
     }
 
     //获取已有个数
@@ -57,7 +62,6 @@ public class StaticArrayList {
         ++count;
         return true;
     }
-
 
     //根据索引 随机插入元素
     public boolean insertByIndex(int index, int value) {
