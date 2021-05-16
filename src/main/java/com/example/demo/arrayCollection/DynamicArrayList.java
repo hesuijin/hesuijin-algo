@@ -26,6 +26,8 @@ public class DynamicArrayList<T> {
     //定义实际个数
     private int count;
 
+    private int capacity;
+
     // 根据传入容量，构造Array
     public DynamicArrayList(int capacity) {
         data = (T[]) new Object[capacity];
@@ -34,7 +36,7 @@ public class DynamicArrayList<T> {
 
     // 无参构造方法，默认数组容量为5
     public DynamicArrayList() {
-        this(5);
+        this(0);
     }
 
     // 获取空间大小
@@ -84,6 +86,11 @@ public class DynamicArrayList<T> {
     // 在 index 位置，插入元素e
     public void add(int index, T e) {
         checkIndexForAdd(index);
+        if(0 == index){
+            this.capacity =5;
+            data = (T[]) new Object[capacity];
+        }
+
         // 如果当前元素个数等于数组容量，则将数组扩容为原来的2倍
         if (count == data.length) {
             resize(2 * data.length);

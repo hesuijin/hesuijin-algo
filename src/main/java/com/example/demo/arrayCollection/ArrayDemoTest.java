@@ -1,6 +1,8 @@
 package com.example.demo.arrayCollection;
 
 
+import java.util.ArrayList;
+
 /**
  * @Description:
  * @Author HeSuiJin
@@ -11,7 +13,7 @@ public class ArrayDemoTest {
     public static void main(String[] args) {
 
         //静态数组测试
-        staticArrayListTest();
+//        staticArrayListTest();
         System.out.println("==============================================");
 
         //动态数组测试

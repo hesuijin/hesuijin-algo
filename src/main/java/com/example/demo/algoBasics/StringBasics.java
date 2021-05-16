@@ -6,6 +6,26 @@ import java.util.Scanner;
  * @Description:
  * 字符串作为特殊的引用类型
  * 很多时候需要算法题中对其进行操作 因此需要熟悉常用API
+ *
+ * String类的常用方法 :
+ *
+ * 	public boolean equals(Object anObject)  比较字符串的内容，严格区分大小写
+ *
+ * 	public boolean equalsIgnoreCase(String anotherString)  比较字符串的内容，忽略大小写
+ *
+ * 	public int length()  返回此字符串的长度
+ *
+ * 	public char charAt(int index)  返回指定索引处的 char 值
+ *
+ * 	public char[] toCharArray()  将字符串拆分为字符数组后返回
+ *
+ *  public String replace(CharSequence target, CharSequence replacement)  使用新值，将字符串中的旧值替换，得到新的字符串
+ *
+ * 	public String substring(int beginIndex, int endIndex)  根据开始和结束索引进行截取，得到新的字符串（包含头，不包含尾）
+ *
+ * 	public String substring(int beginIndex)  从传入的索引处截取，截取到末尾，得到新的字符串
+ *
+ * 	public String[] split(String regex)  根据传入的规则切割字符串，得到字符串数组
  * @Author HeSuiJin
  * @Date 2021/5/12
  */
