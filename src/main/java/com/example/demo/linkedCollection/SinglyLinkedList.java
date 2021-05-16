@@ -11,7 +11,6 @@ public class SinglyLinkedList {
     //初始化 无头节点（头节点为空）
     private NodeSingly head = null;
 
-    //无头结点
     //表头部插入
     public void insertAsHead(int value) {
         NodeSingly newNodeSingly = new NodeSingly(value, null);

@@ -77,8 +77,6 @@ public class LinkedListDemo {
         doublyLinkedList.findAll();
         System.out.println("==============================================");
 
-
-
         doublyLinkedList.deleteByNode(nodeDoublyTemp);
         doublyLinkedList.findAll();
         System.out.println("==============================================");
