@@ -1,6 +1,8 @@
 package com.example.demo.algoBasics;
 
 
+import java.util.LinkedList;
+
 /**
  * @Description:
  * 数组就是存储数据长度固定的容器，存储多个数据的数据类型要一致。
@@ -17,7 +19,6 @@ public class ArrayBasics {
      * @param args
      */
     public static void main(String[] args) {
-
         //动态初始化
         dynamicCreateArrIntTest();
         //静态初始化

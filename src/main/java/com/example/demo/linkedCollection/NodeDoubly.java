@@ -7,13 +7,13 @@ package com.example.demo.linkedCollection;
  * @Date 2021/5/15
  */
 //Node数据类型  里面  有两个Node数据类型的数据  (分别为 上一个节点 下一个节点)
-public class NodeDoubly {
+public class NodeDoubly<E> {
 
-    int data;
-    NodeDoubly next;
-    NodeDoubly prev;
+    E data;
+    NodeDoubly<E> next;
+    NodeDoubly<E> prev;
 
-    public NodeDoubly(NodeDoubly prev, int data, NodeDoubly next) {
+    public NodeDoubly(NodeDoubly<E> prev, E data, NodeDoubly<E> next) {
         this.data = data;
         this.next = next;
         this.prev = prev;

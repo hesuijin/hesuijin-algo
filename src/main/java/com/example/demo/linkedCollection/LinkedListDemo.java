@@ -9,7 +9,6 @@ import java.util.LinkedList;
  */
 public class LinkedListDemo {
     public static void main(String[] args) {
-
         //单向链表
         System.out.println("===================单向链表===================");
         SinglyLinkedListTest();
@@ -19,7 +18,6 @@ public class LinkedListDemo {
     }
 
     private static void SinglyLinkedListTest() {
-
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.insertAsHead(1);
         singlyLinkedList.insertAsHead(5);
@@ -58,7 +56,6 @@ public class LinkedListDemo {
 
     private static void DoublyLinkedListTest() {
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
-        doublyLinkedList.insertAsfirst(1);
         doublyLinkedList.insertAsfirst(5);
         doublyLinkedList.insertAsfirst(7);
         doublyLinkedList.insertAsfirst(9);

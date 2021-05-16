@@ -7,19 +7,18 @@ package com.example.demo.linkedCollection;
  * @Author HeSuiJin
  * @Date 2021/5/15
  */
-public class DoublyLinkedList {
+public class DoublyLinkedList<E> {
 
     //初始化 无头节点（头节点为空）
-    private NodeDoubly first ;
+    private NodeDoubly<E> first ;
 
     //初始化 无尾节点（尾节点为空）
-    private NodeDoubly last ;
+    private NodeDoubly<E> last ;
 
     //无头结点
     //表头部插入
-    public void insertAsfirst(int value) {
-
-        NodeDoubly newNodeDoubly = new NodeDoubly(null,value,null );
+    public void insertAsfirst(E value) {
+        NodeDoubly<E> newNodeDoubly = new NodeDoubly(null,value,null );
         insertTofirst(newNodeDoubly);
     }
 
@@ -69,12 +68,12 @@ public class DoublyLinkedList {
 
 
     //在某节点上前 插入新节点
-    public void insertBefore(NodeDoubly originalNodeDoubly, int value) {
-        NodeDoubly newNodeDoubly = new NodeDoubly(null,value, null);
+    public void insertBefore(NodeDoubly originalNodeDoubly, E value) {
+        NodeDoubly<E> newNodeDoubly = new NodeDoubly(null,value, null);
         insertBefore(originalNodeDoubly, newNodeDoubly);
     }
 
-    private void insertBefore(NodeDoubly originalNodeDoubly, NodeDoubly newNodeDoubly) {
+    private void insertBefore(NodeDoubly originalNodeDoubly, NodeDoubly<E> newNodeDoubly) {
         if (originalNodeDoubly == null) {
             return;
         }
@@ -87,7 +86,7 @@ public class DoublyLinkedList {
 
         //以头节点开始 使用next进行遍历 一直到获取到
         // 遍历节点 的下一个节点为需要查找的某节点为止
-        NodeDoubly indexNodeDoubly = first;
+        NodeDoubly<E> indexNodeDoubly = first;
         while (indexNodeDoubly != null && indexNodeDoubly.next != originalNodeDoubly) {
             indexNodeDoubly = indexNodeDoubly.next;
         }
@@ -108,8 +107,8 @@ public class DoublyLinkedList {
 
     //顺序插入
     //链表尾部插入
-    public void insertAsLast(int value) {
-        NodeDoubly newNodeDoubly = new NodeDoubly(null,value,null );
+    public void insertAsLast(E value) {
+        NodeDoubly<E> newNodeDoubly = new NodeDoubly(null,value,null );
 
         //创建一个节点该节点同时为 头节点与尾节点
         if (last == null) {
@@ -149,7 +148,7 @@ public class DoublyLinkedList {
             return;
         }
 
-        NodeDoubly indexNodeDoubly = first;
+        NodeDoubly<E> indexNodeDoubly = first;
 
         //以头节点开始 使用next进行遍历 一直获取到
         // 遍历节点 的下一个节点为原节点为止
@@ -170,20 +169,20 @@ public class DoublyLinkedList {
     }
 
     //根据value删除节点
-    public void deleteByValue(int value){
+    public void deleteByValue(E value){
 
-        NodeDoubly indexNodeDoubly = first;
+        NodeDoubly<E> indexNodeDoubly = first;
         //外部接口调用 第一次为从  头节点进行遍历
         deleteByValueRepetition(value, indexNodeDoubly);
     }
 
     //通过递归  根据value  删除所有拥有该value的节点
-    public void deleteByValueRepetition(int value, NodeDoubly indexNodeDoubly) {
+    public void deleteByValueRepetition(E value, NodeDoubly<E> indexNodeDoubly) {
         if (first == null && last == null) {
             return;
         }
 
-        NodeDoubly beforeIndexNodeDoubly = null;
+        NodeDoubly<E> beforeIndexNodeDoubly = null;
         // 以头节点开始 使用next进行遍历 一直到获取到为止
         // 遍历节点 的 data 为所需要查找的data为止
         // 该遍历节点是需要删除的  因此还需要查找出前一个节点
@@ -216,8 +215,8 @@ public class DoublyLinkedList {
     }
 
     //查找节点的data
-    public NodeDoubly findByValueFirst(int value) {
-        NodeDoubly indexNodeDoubly = first;
+    public NodeDoubly<E> findByValueFirst(E value) {
+        NodeDoubly<E> indexNodeDoubly = first;
         while (indexNodeDoubly != null && indexNodeDoubly.data != value) {
             indexNodeDoubly = indexNodeDoubly.next;
         }
@@ -225,8 +224,8 @@ public class DoublyLinkedList {
     }
 
     //查找节点的data
-    public NodeDoubly findByValueLast(int value) {
-        NodeDoubly indexNodeDoubly = last;
+    public NodeDoubly<E> findByValueLast(E value) {
+        NodeDoubly<E> indexNodeDoubly = last;
         while (indexNodeDoubly != null && indexNodeDoubly.data != value) {
             indexNodeDoubly = indexNodeDoubly.prev;
         }
@@ -235,7 +234,7 @@ public class DoublyLinkedList {
 
     //打印所有数据
     public void findAll() {
-        NodeDoubly p = first;
+        NodeDoubly<E> p = first;
         while (p != null) {
             System.out.print(p.data + " ");
             p = p.next;
