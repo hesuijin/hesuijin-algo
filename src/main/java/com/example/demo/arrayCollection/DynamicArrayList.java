@@ -92,8 +92,9 @@ public class DynamicArrayList<T> {
         }
 
         // 如果当前元素个数等于数组容量，则将数组扩容为原来的2倍
+        // 如2等于10（2机制） 向左挪动一位为 100 等于4
         if (count == data.length) {
-            resize(2 * data.length);
+            resize( data.length<<1);
         }
 
         for (int i = count - 1; i >= index; i--) {
@@ -126,8 +127,10 @@ public class DynamicArrayList<T> {
         data[count] = null;
 
         // 缩容 如果此时实际的大小等于四分之一 则缩容
-        if (count == data.length / 4 && data.length / 2 != 0) {
-            resize(data.length / 2);
+        // 如8等于1000（2机制） 向右挪动两位为 10 等于2
+        // 如8等于1000（2机制） 向右挪动两位为 100 等于4
+        if (count == data.length >>2 && data.length >>1 != 0) {
+            resize(data.length >>1);
         }
 
         return ret;
